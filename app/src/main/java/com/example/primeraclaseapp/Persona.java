@@ -13,6 +13,10 @@ public class Persona {
         Direccion = direccion;
     }
 
+
+
+
+
     public int getCC() {
         return CC;
     }
@@ -36,4 +40,5 @@ public class Persona {
     public void setDireccion(String direccion) {
         Direccion = direccion;
     }
+
 }
