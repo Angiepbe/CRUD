@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -11,7 +12,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText ECC, ENombre, EDi,Eprof, EFe;
 
 
-    ArrayList <Administrador> Lista = new ArrayList<Administrador>();
+    ArrayList<Administrador> Lista = new ArrayList<Administrador>();
 
 
     @Override
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void Navegacion (View view ){
         Intent sig= new Intent(this,Segunda.class);//Generar instancia entre pantallar
         //Envio de info entre pantallas
-        sig.putExtra("Lista",Lista);//Generara un identificador que reconocera la siguiente pantalla
+        sig.putExtra("list",  Lista);//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
 

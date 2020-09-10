@@ -1,6 +1,8 @@
 package com.example.primeraclaseapp;
 
-public class Administrador extends Persona {
+import java.io.Serializable;
+
+public class Administrador extends Persona implements Serializable {
     private String Profesion;
     private Fecha FechaIngreso;
 

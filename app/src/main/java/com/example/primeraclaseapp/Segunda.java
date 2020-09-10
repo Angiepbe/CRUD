@@ -7,22 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Segunda extends AppCompatActivity {
     private TextView tv;
     private EditText cedula;
-    ArrayList <Administrador> Lista = new ArrayList<Administrador>();
+
     Administrador Adm;
+    List<Administrador> Lista=new ArrayList<Administrador>();
     private TextView ECC, ENombre, EDi,Eprof, EFe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
         tv=(TextView)findViewById(R.id.ID_Tex);
+        Intent miIntetnt =getIntent();
 
-        ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
+        Lista= (ArrayList<Administrador>)getIntent().getSerializableExtra("list");//Tomar la información
         cedula=(EditText)findViewById(R.id.ID_BUS);
 
         ECC=(TextView) findViewById(R.id.ID_Tex);
@@ -54,12 +58,9 @@ public class Segunda extends AppCompatActivity {
                 Eprof.setText(Lista.get(indice).getProfesion());
                 EFe.setText(Lista.get(indice).getFechaIngreso().getAnio()+" "+Lista.get(indice).getFechaIngreso().getMes()+" "+Lista.get(indice).getFechaIngreso().getDias());
 
-
             }else {
 
-
-
-
+                Toast.makeText(this,"NO se ha enconrado",Toast.LENGTH_SHORT).show();
 
             }
         }
