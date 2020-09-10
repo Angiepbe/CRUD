@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Segunda extends AppCompatActivity {
     private TextView tv;
 
@@ -16,8 +18,11 @@ public class Segunda extends AppCompatActivity {
         setContentView(R.layout.activity_segunda);
         tv=(TextView)findViewById(R.id.ID_Tex);
 
-        String dato=getIntent().getStringExtra("info");//Tomar la información
-        tv.setText("Nombre ="+dato);
+        ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
+
+
+
+
     }
 
     public void  Anterior (View view ){
@@ -25,5 +30,11 @@ public class Segunda extends AppCompatActivity {
         startActivity(Ant);
 
 
+
+
     }
+
+
+
+
 }
