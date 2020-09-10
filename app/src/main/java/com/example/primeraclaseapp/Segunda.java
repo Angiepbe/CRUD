@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,9 +15,6 @@ public class Segunda extends AppCompatActivity {
     private TextView tv;
     private EditText cedula;
 
-    Administrador Adm;
-    List<Administrador> Lista=new ArrayList<Administrador>();
-    private TextView ECC, ENombre, EDi,Eprof, EFe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Adm= new Administrador(CC,nombre,dire, profe,dia,0,0);//Llamar constructor
         if (Adm != null){
             Toast.makeText(this,"Registrado",Toast.LENGTH_SHORT).show();
+            Lista.add(Adm);
 
             fichero.addUser(Adm);
         }
@@ -70,7 +72,5 @@ public class MainActivity extends AppCompatActivity {
         //sig.putExtra("info", ENombre.getText().toString());//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
-
-
 
 }
