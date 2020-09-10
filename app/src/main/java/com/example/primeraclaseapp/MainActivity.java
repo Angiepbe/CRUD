@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Administrador Adm;
     private EditText ECC, ENombre, EDi,Eprof, EFe;
-    private String mama;
+
 
     ArrayList <Administrador> Lista = new ArrayList<Administrador>();
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     public void Navegacion (View view ){
         Intent sig= new Intent(this,Segunda.class);//Generar instancia entre pantallar
         //Envio de info entre pantallas
-        sig.putExtra("info", ENombre.getText().toString());//Generara un identificador que reconocera la siguiente pantalla
+        sig.putExtra("Lista",Lista);//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
 
