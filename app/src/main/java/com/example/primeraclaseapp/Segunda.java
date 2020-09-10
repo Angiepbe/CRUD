@@ -12,6 +12,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+
 public class Segunda extends AppCompatActivity {
     private TextView tv;
     private EditText cedula;
@@ -24,7 +26,8 @@ public class Segunda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
         tv=(TextView)findViewById(R.id.ID_Tex);
-        Intent miIntetnt =getIntent();
+
+        ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
 
         Lista= (ArrayList<Administrador>)getIntent().getSerializableExtra("list");//Tomar la información
         cedula=(EditText)findViewById(R.id.ID_BUS);
