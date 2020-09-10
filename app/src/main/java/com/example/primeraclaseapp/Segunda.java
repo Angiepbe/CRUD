@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Segunda extends AppCompatActivity {
     private TextView tv;
 
@@ -17,7 +19,6 @@ public class Segunda extends AppCompatActivity {
         tv=(TextView)findViewById(R.id.ID_Tex);
 
         ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
-
 
 
 
