@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private String mama;
 
     ArrayList <Administrador> Lista = new ArrayList<Administrador>();
-
+    Archivo fichero=new Archivo("Registro");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         Eprof=(EditText)findViewById(R.id.ID_profesion);
         EFe=(EditText)findViewById(R.id.ID_Fecha);
 
+
     }
 
     public void Registrar (View view){
+
+
 
         int CC=Integer.parseInt(ECC.getText().toString());
         String nombre=ENombre.getText().toString();
@@ -48,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
         Adm= new Administrador(CC,nombre,dire, profe,dia,0,0);//Llamar constructor
         if (Adm != null){
             Toast.makeText(this,"Registrado",Toast.LENGTH_SHORT).show();
-            Lista.add(Adm);
 
+            fichero.addUser(Adm);
         }
         Adm.getFechaIngreso().getDias();
         Adm.setFechaIngreso(12, 1,12);
+
 
     }
 
@@ -61,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
     public void Navegacion (View view ){
         Intent sig= new Intent(this,Segunda.class);//Generar instancia entre pantallar
         //Envio de info entre pantallas
-        sig.putExtra("info", ENombre.getText().toString());//Generara un identificador que reconocera la siguiente pantalla
+        //sig.putExtra("info", ENombre.getText().toString());//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
+
+
 
 }
