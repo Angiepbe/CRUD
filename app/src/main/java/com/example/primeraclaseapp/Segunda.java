@@ -32,8 +32,6 @@ public class Segunda extends AppCompatActivity {
 
 
 
-
-
     }
 
 
