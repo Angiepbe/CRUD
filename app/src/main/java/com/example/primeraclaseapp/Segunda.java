@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Segunda extends AppCompatActivity {
     private TextView tv;
-
+    private EditText cedula;
+    ArrayList <Administrador> Lista = new ArrayList<Administrador>();
+    Administrador Adm;
+    private TextView ECC, ENombre, EDi,Eprof, EFe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +23,13 @@ public class Segunda extends AppCompatActivity {
         tv=(TextView)findViewById(R.id.ID_Tex);
 
         ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
+        cedula=(EditText)findViewById(R.id.ID_BUS);
 
-
-
+        ECC=(TextView) findViewById(R.id.ID_Tex);
+        ENombre=(TextView)findViewById(R.id.ID_TEXN);
+        EDi=(TextView)findViewById(R.id.ID_TEXD);
+        Eprof=(TextView)findViewById(R.id.ID_TEXTP);
+        EFe=(TextView)findViewById(R.id.ID_TEXF);
     }
 
     public void  Anterior (View view ){
@@ -30,4 +38,33 @@ public class Segunda extends AppCompatActivity {
 
 
     }
+
+
+    public  void  buscarCC(View view){
+
+        int CC=Integer.parseInt(cedula.getText().toString());
+         int indice;
+        for (int i=0;i>=Lista.size();i++){
+
+            if(Lista.get(i).getCC()==CC){
+                indice=i;
+                ECC.setText(Lista.get(indice).getCC());
+                ENombre.setText(Lista.get(indice).getNombre());
+                EDi.setText(Lista.get(indice).getDireccion());
+                Eprof.setText(Lista.get(indice).getProfesion());
+                EFe.setText(Lista.get(indice).getFechaIngreso().getAnio()+" "+Lista.get(indice).getFechaIngreso().getMes()+" "+Lista.get(indice).getFechaIngreso().getDias());
+
+
+            }else {
+
+
+
+            }
+        }
+
+
+    }
+
+
+
 }
