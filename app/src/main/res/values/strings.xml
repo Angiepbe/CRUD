@@ -8,6 +8,10 @@
     <string name="Button">Registrar</string>
     <string name="Button1">Siguiente</string>
     <string name="Button2">Anterior</string>
+    <string name="Button3">Buscar</string>
+    <string name="Button4">Modificar</string>
+    <string name="Button5">Eliminar</string>
+    <string name="Edit_Text6">Búsqueda por CC</string>
 
 
 </resources>

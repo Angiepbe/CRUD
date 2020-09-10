@@ -17,7 +17,7 @@ public class Segunda extends AppCompatActivity {
         tv=(TextView)findViewById(R.id.ID_Tex);
 
         String dato=getIntent().getStringExtra("info");//Tomar la información
-        tv.setText("Nombre ="+dato);
+        tv.setText(dato);
     }
 
     public void  Anterior (View view ){
