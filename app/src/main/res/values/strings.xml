@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PrimeraClaseApp</string>
+    <string name="Edit_Text1">Digite la cédula</string>
+    <string name="Edit_Text2">Digite el nombre </string>
+    <string name="Edit_Text3">Digite la dirección</string>
+    <string name="Edit_Text4">Digite la profesión</string>
+    <string name="Edit_Text5">Digite fecha</string>
+    <string name="Button">Registrar</string>
+    <string name="Button1">Siguiente</string>
+    <string name="Button2">Anterior</string>
+
+
+</resources>
