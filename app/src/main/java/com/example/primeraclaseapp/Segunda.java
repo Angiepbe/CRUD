@@ -16,8 +16,11 @@ public class Segunda extends AppCompatActivity {
         setContentView(R.layout.activity_segunda);
         tv=(TextView)findViewById(R.id.ID_Tex);
 
-        String dato=getIntent().getStringExtra("info");//Tomar la información
-        tv.setText(dato);
+        ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
+
+
+
+
     }
 
     public void  Anterior (View view ){
