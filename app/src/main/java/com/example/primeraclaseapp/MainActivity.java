@@ -17,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     Administrador Adm;
     private EditText ECC, ENombre, EDi,Eprof, EFe;
-    private TextView Hola;
+    private String mama;
+
     ArrayList <Administrador> Lista = new ArrayList<Administrador>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
