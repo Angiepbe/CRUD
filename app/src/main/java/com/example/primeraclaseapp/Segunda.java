@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +24,12 @@ public class Segunda extends AppCompatActivity {
 
 
         ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
+        cedula=(EditText)findViewById(R.id.ID_BUS);
 
 
 
 
 
-        String dato=getIntent().getStringExtra("info");//Tomar la información
-        tv.setText(dato);
 
     }
 
@@ -43,7 +43,7 @@ public class Segunda extends AppCompatActivity {
 
     public  void  buscarCC(View view){
         Archivo fichero2 = new Archivo("Registro");
-        int CC=Integer.parseInt(cedula.getText().toString());
+        int CC=Integer.parseInt(cedula.toString());
          int indice=fichero2.buscarUsuario(CC);
         if (indice != -1) {
 
