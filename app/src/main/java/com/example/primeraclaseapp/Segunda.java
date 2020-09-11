@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Segunda extends AppCompatActivity {
 
@@ -20,13 +21,14 @@ public class Segunda extends AppCompatActivity {
     private EditText profe;
     private TextView id;
     private EditText fecha;
+    int indice;
     ArrayList<Administrador> Lista;
   // Archivo fichero2 = new Archivo("Registro");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
-
+        int indice=0;
 
 
         ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
@@ -39,11 +41,6 @@ public class Segunda extends AppCompatActivity {
         id=(TextView) findViewById(R.id.ID_Tex);
 
 
-
-
-
-
-
     }
 
 
@@ -51,7 +48,8 @@ public class Segunda extends AppCompatActivity {
 
     public void  Anterior (View view ){
 
-        Intent Ant= new Intent(this,MainActivity.class);
+        Intent Ant= new Intent(Segunda.this,MainActivity.class);
+        Ant.putExtra("info",Lista);//Generara un identificador que reconocera la siguiente pantalla
         startActivity(Ant);
 
     }
@@ -64,9 +62,12 @@ public class Segunda extends AppCompatActivity {
 
 
         int CC=Integer.parseInt(cedula.getText().toString());
+        boolean entro=false;
+
 
 
         for (int i=0;i<Lista.size();i++){
+
 
 
             if(Lista.get(i).getCC()==CC){
@@ -77,12 +78,31 @@ public class Segunda extends AppCompatActivity {
                 profe.setText(Lista.get(i).getProfesion());
                 dir.setText(Lista.get(i).getDireccion());
                 fecha.setText(Lista.get(i).getFechaIngreso());
+                entro=true;
+                indice=i;
+
             }
 
 
-
         }
-        Toast.makeText(this,"no llegó ni mierda",Toast.LENGTH_SHORT).show();
+
+        if(entro){
+            Toast.makeText(this,"no llegó ni mierda",Toast.LENGTH_SHORT).show();
+        }
+
 
     }
+
+    public void modificar(View view){
+
+
+    }
+
+
+
+
+
+
+
+
 }
