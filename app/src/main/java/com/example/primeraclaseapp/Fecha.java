@@ -1,6 +1,8 @@
 package com.example.primeraclaseapp;
 
-public class Fecha {
+import java.io.Serializable;
+
+public class Fecha implements Serializable {
     private int Dias, Mes, Anio;
 
     public Fecha() {

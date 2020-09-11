@@ -1,6 +1,8 @@
 package com.example.primeraclaseapp;
 
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,6 +28,7 @@ public class Archivo {
                 ///   file.getParentFile().mkdirs();
                 file.createNewFile();
 
+
             } catch (IOException ex) {
                 Logger.getLogger(Archivo.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -49,7 +52,7 @@ public class Archivo {
             writer.writeObject(UserList);
             writer.close();
             fos.close();
-        } catch(FileNotFoundException ex){System.out.println("FileNotFoundException");}
+        } catch(FileNotFoundException ex){System.out.println("FileNotFoundException amigo");}
         catch(IOException ex){System.out.println("InputException");}
     }
 
@@ -69,11 +72,10 @@ public class Archivo {
 
     public int buscarUsuario(int CC){
 
-        Administrador aux;
 
         for(int i=0;i<UserList.size();i++){
-            aux=(Administrador) UserList.get(i);
-            if(aux.getCC()==CC){
+
+            if(UserList.get(i).getCC()==CC){
                 return i;
             }
         }

@@ -13,18 +13,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Segunda extends AppCompatActivity {
-    private TextView tv;
-    private EditText cedula;
 
+
+    private EditText cedula;
+    private TextView name;
+    private TextView dir;
+    private TextView profe;
+    private TextView id;
+    private TextView fecha;
+    ArrayList<Administrador> Lista;
+  // Archivo fichero2 = new Archivo("Registro");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
-        tv=(TextView)findViewById(R.id.ID_Tex);
 
 
-        ArrayList<Administrador> Lista=(ArrayList<Administrador>) getIntent().getSerializableExtra("Lista");//Tomar la información
-        cedula=(EditText)findViewById(R.id.ID_BUS);
+
+        ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
+        Lista=listaAd;
+        cedula=(EditText) findViewById(R.id.ID_BUS);
+        name=(TextView) findViewById(R.id.ID_TEXN);
+        dir=(TextView) findViewById(R.id.ID_TEXD);
+        profe=(TextView) findViewById(R.id.ID_TEXTP);
+        fecha=(TextView) findViewById(R.id.ID_TEXF);
+        id=(TextView) findViewById(R.id.ID_Tex);
+
 
 
 
@@ -33,34 +47,43 @@ public class Segunda extends AppCompatActivity {
 
     }
 
+
+
+
     public void  Anterior (View view ){
+
         Intent Ant= new Intent(this,MainActivity.class);
         startActivity(Ant);
 
-
     }
+
 
 
     public  void  buscarCC(View view){
-        Archivo fichero2 = new Archivo("Registro");
-        int CC=Integer.parseInt(cedula.toString());
-         int indice=fichero2.buscarUsuario(CC);
-        if (indice != -1) {
+
+     //   ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
 
 
+        int CC=Integer.parseInt(cedula.getText().toString());
 
-        }else {
-            Toast.makeText(this,"NO se ha enconrado",Toast.LENGTH_SHORT).show();
+
+        for (int i=0;i<Lista.size();i++){
+
+
+            if(Lista.get(i).getCC()==CC){
+
+                Toast.makeText(this,Lista.get(i).getNombre(),Toast.LENGTH_SHORT).show();
+                id.setText(Integer.toString(Lista.get(i).getCC()));
+                name.setText(Lista.get(i).getNombre());
+                profe.setText(Lista.get(i).getProfesion());
+                dir.setText(Lista.get(i).getDireccion());
+                fecha.setText(Lista.get(i).getFechaIngreso());
+            }
+
+
 
         }
-
-
-
-
-
+        Toast.makeText(this,"no llegó ni mierda",Toast.LENGTH_SHORT).show();
 
     }
-
-
-
 }
