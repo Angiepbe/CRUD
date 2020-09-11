@@ -10,17 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Segunda extends AppCompatActivity {
 
 
     private EditText cedula;
-    private TextView name;
-    private TextView dir;
-    private TextView profe;
+    private EditText name;
+    private EditText dir;
+    private EditText profe;
     private TextView id;
-    private TextView fecha;
+    private EditText fecha;
     ArrayList<Administrador> Lista;
   // Archivo fichero2 = new Archivo("Registro");
     @Override
@@ -33,10 +32,10 @@ public class Segunda extends AppCompatActivity {
         ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
         Lista=listaAd;
         cedula=(EditText) findViewById(R.id.ID_BUS);
-        name=(TextView) findViewById(R.id.ID_TEXN);
-        dir=(TextView) findViewById(R.id.ID_TEXD);
-        profe=(TextView) findViewById(R.id.ID_TEXTP);
-        fecha=(TextView) findViewById(R.id.ID_TEXF);
+        name=(EditText) findViewById(R.id.ID_TEXN);
+        dir=(EditText) findViewById(R.id.ID_TEXD);
+        profe=(EditText) findViewById(R.id.ID_TEXP);
+        fecha=(EditText) findViewById(R.id.ID_TEXF);
         id=(TextView) findViewById(R.id.ID_Tex);
 
 

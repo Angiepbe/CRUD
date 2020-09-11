@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
        ArrayList <Administrador> Lista = new ArrayList<>();
 
     Archivo fichero=new Archivo("Registro");
+    private Administrador Adm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         Eprof=(EditText)findViewById(R.id.ID_profesion);
         EFe=(EditText)findViewById(R.id.ID_Fecha);
 
-
     }
 
     public void Registrar (View view){
+
         int CC=Integer.parseInt(ECC.getText().toString());
         String nombre=ENombre.getText().toString();
         String dire=EDi.getText().toString();
@@ -46,24 +48,22 @@ public class MainActivity extends AppCompatActivity {
 
         //public Administrador(int CC, String nombre, String direccion, String profesion, int Dias, int Mes, int Anio)
 
-        Administrador Adm= new Administrador(CC,nombre,dire, profe,dia,0,0);//Llamar constructor
+        Adm= new Administrador(CC,nombre,dire, profe,dia,0,0);//Llamar constructor
         if (Adm != null){
             Toast.makeText(this,"Registrado",Toast.LENGTH_SHORT).show();
-
             Lista.add(Adm);
 
-            fichero.addUser(Adm);
         }
-
         Adm.setFechaIngreso(12, 1,12);
+
     }
 
     //Funcion que va a llamar a la otra ventana
 
     public void Navegacion (View view ){
-        Intent sig= new Intent(MainActivity.this,Segunda.class);//Generar instancia entre pantallar
+        Intent sig= new Intent(this,Segunda.class);//Generar instancia entre pantallar
         //Envio de info entre pantallas
-        sig.putExtra("info", Lista);//Generara un identificador que reconocera la siguiente pantalla
+        sig.putExtra("Lista",Lista);//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
 
