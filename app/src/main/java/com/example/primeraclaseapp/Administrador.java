@@ -26,13 +26,8 @@ public class Administrador extends Persona implements Serializable {
         return Profesion;
     }
 
-    public String getFechaIngreso() {
-
-        String Fecha;
-
-        Fecha=Integer.toString(FechaIngreso.getAnio())+"/"+Integer.toString(FechaIngreso.getMes())+"/"+Integer.toString(FechaIngreso.getDias());
-
-        return Fecha;
+    public Fecha getFechaIngreso() {
+        return FechaIngreso;
     }
 
     public void setProfesion(String profesion) {

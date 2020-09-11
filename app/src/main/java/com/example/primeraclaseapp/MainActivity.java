@@ -30,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
-        Lista=listaAd;
+        ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("otra");
+        if(listaAd!=null){
+            Lista=listaAd;
+        }
+
+
+
         ECC=(EditText)findViewById(R.id.ID_CC);
         ENombre=(EditText)findViewById(R.id.ID_Nombre);
         EDi=(EditText)findViewById(R.id.ID_Direccion);
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             Lista.add(Adm);
 
         }
+
         Adm.setFechaIngreso(12, 1,12);
 
     }
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public void Navegacion (View view ){
         Intent sig= new Intent(this,Segunda.class);//Generar instancia entre pantallar
         //Envio de info entre pantallas
-        sig.putExtra("Lista",Lista);//Generara un identificador que reconocera la siguiente pantalla
+        sig.putExtra("info",Lista);//Generara un identificador que reconocera la siguiente pantalla
         startActivity(sig);//Inicializar objeto
     }
 
