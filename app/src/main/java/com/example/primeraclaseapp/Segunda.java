@@ -20,15 +20,17 @@ public class Segunda extends AppCompatActivity {
     private EditText dir;
     private EditText profe;
     private TextView id;
-    private EditText fecha;
+    private TextView fecha;
     int indice;
+    boolean entro;
     ArrayList<Administrador> Lista;
   // Archivo fichero2 = new Archivo("Registro");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda);
-        int indice=0;
+       indice=0;
+        entro=false;
 
 
         ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
@@ -37,7 +39,7 @@ public class Segunda extends AppCompatActivity {
         name=(EditText) findViewById(R.id.ID_TEXN);
         dir=(EditText) findViewById(R.id.ID_TEXD);
         profe=(EditText) findViewById(R.id.ID_TEXP);
-        fecha=(EditText) findViewById(R.id.ID_TEXF);
+        fecha=(TextView) findViewById(R.id.ID_TEXF);
         id=(TextView) findViewById(R.id.ID_Tex);
 
 
@@ -62,13 +64,11 @@ public class Segunda extends AppCompatActivity {
 
 
         int CC=Integer.parseInt(cedula.getText().toString());
-        boolean entro=false;
+
 
 
 
         for (int i=0;i<Lista.size();i++){
-
-
 
             if(Lista.get(i).getCC()==CC){
 
@@ -77,16 +77,14 @@ public class Segunda extends AppCompatActivity {
                 name.setText(Lista.get(i).getNombre());
                 profe.setText(Lista.get(i).getProfesion());
                 dir.setText(Lista.get(i).getDireccion());
-                fecha.setText(Lista.get(i).getFechaIngreso());
+                fecha.setText(Integer.toString(Lista.get(i).getFechaIngreso().getDias()));
                 entro=true;
                 indice=i;
 
             }
 
-
         }
-
-        if(entro){
+        if(entro==true){
             Toast.makeText(this,"no llegó ni mierda",Toast.LENGTH_SHORT).show();
         }
 
@@ -95,6 +93,13 @@ public class Segunda extends AppCompatActivity {
 
     public void modificar(View view){
 
+        int CC=Integer.parseInt(id.getText().toString());
+        String nombre=name.getText().toString();
+        String dire=dir.getText().toString();
+        String profes=profe.getText().toString();
+        int dia=Integer.parseInt(fecha.getText().toString());
+
+        Administrador amd= new Administrador(CC,nombre,dire, profes,dia,0,0);
 
     }
 
