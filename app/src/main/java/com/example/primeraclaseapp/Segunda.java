@@ -40,11 +40,6 @@ public class Segunda extends AppCompatActivity {
         id=(TextView) findViewById(R.id.ID_Tex);
 
 
-
-
-
-
-
     }
 
 
