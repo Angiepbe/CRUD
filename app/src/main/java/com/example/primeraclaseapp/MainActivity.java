@@ -69,4 +69,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(sig);//Inicializar objeto
     }
 
+    public void Limpiar (View view){
+        ECC.setText(" ");
+        ENombre.setText(" ");
+        Eprof.setText(" ");
+        EDi.setText(" ");
+        EFe.setText(" ");
+    }
+
 }

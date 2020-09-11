@@ -20,7 +20,7 @@ public class Segunda extends AppCompatActivity {
     private EditText dir;
     private EditText profe;
     private TextView id;
-    private EditText fecha;
+    private TextView fecha;
     int indice;
     ArrayList<Administrador> Lista;
   // Archivo fichero2 = new Archivo("Registro");
@@ -37,13 +37,11 @@ public class Segunda extends AppCompatActivity {
         name=(EditText) findViewById(R.id.ID_TEXN);
         dir=(EditText) findViewById(R.id.ID_TEXD);
         profe=(EditText) findViewById(R.id.ID_TEXP);
-        fecha=(EditText) findViewById(R.id.ID_TEXF);
+        fecha=(TextView) findViewById(R.id.ID_TEXF);
         id=(TextView) findViewById(R.id.ID_Tex);
 
 
     }
-
-
 
 
     public void  Anterior (View view ){
@@ -58,7 +56,7 @@ public class Segunda extends AppCompatActivity {
 
     public  void  buscarCC(View view){
 
-     //   ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
+     //ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
 
 
         int CC=Integer.parseInt(cedula.getText().toString());
@@ -83,7 +81,6 @@ public class Segunda extends AppCompatActivity {
 
             }
 
-
         }
 
         if(entro){
@@ -93,16 +90,15 @@ public class Segunda extends AppCompatActivity {
 
     }
 
-    public void modificar(View view){
+   /* public void modificar(View view){
 
+
+    }*/
+
+    public void eliminar(View view) {
+
+        Lista.remove(indice);
 
     }
-
-
-
-
-
-
-
 
 }
