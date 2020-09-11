@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ArrayList<Administrador> listaAd=(ArrayList<Administrador>) getIntent().getSerializableExtra("info");
+        Lista=listaAd;
         ECC=(EditText)findViewById(R.id.ID_CC);
         ENombre=(EditText)findViewById(R.id.ID_Nombre);
         EDi=(EditText)findViewById(R.id.ID_Direccion);
