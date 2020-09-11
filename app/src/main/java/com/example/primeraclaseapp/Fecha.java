@@ -15,6 +15,7 @@ public class Fecha implements Serializable {
     }
 
     public int getDias() {
+
         return Dias;
     }
 
